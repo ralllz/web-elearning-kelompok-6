@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>E-Learning Prototype</h1>
+    <p>Klik halaman untuk melihat desain</p>
+</header>
+
+<div class="container">
+
+    <!-- CARD 1 -->
+    <div class="card" onclick="openPage(1)">
+        <img src="images/1.jpg">
+        <p>Halaman 1</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card" onclick="openPage(2)">
+        <img src="images/2.jpg">
+        <p>Halaman 2</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card" onclick="openPage(3)">
+        <img src="images/3.jpg">
+        <p>Halaman 3</p>
+    </div>
+
+</div>
+
+<!-- MODAL VIEW -->
+<div id="viewer" class="viewer">
+    <span class="close" onclick="closeViewer()">×</span>
+    <img id="viewerImg">
+    <div class="nav">
+        <button onclick="prev()">⬅</button>
+        <button onclick="next()">➡</button>
+    </div>
+</div>
+
+<script>
+let current = 1;
+const total = 56; // ganti sesuai jumlah gambar kamu
+
+function openPage(num){
+    current = num;
+    document.getElementById("viewer").style.display = "flex";
+    document.getElementById("viewerImg").src = "images/" + num + ".jpg";
+}
+
+function closeViewer(){
+    document.getElementById("viewer").style.display = "none";
+}
+
+function next(){
+    if(current < total){
+        current++;
+        openPage(current);
+    }
+}
+
+function prev(){
+    if(current > 1){
+        current--;
+        openPage(current);
+    }
+}
+</script>
+
+</body>
+</html>
